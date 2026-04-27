@@ -1,0 +1,104 @@
+{
+  "name": "pipeline_bdd100k_ingestion",
+  "properties": {
+    "description": "Orchestrates BDD100K data ingestion: upload raw data to bronze layer, then parse metadata to silver layer.",
+    "activities": [
+      {
+        "name": "UploadRawBDD100K",
+        "type": "AzureFunctionActivity",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "02:00:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 60
+        },
+        "typeProperties": {
+          "functionName": "TriggerBDD100KUpload",
+          "method": "POST",
+          "body": {
+            "storage_account": "@pipeline().parameters.storageAccount",
+            "container": "raw-bronze",
+            "source_path": "@pipeline().parameters.bdd100kSourcePath"
+          }
+        },
+        "linkedServiceName": {
+          "referenceName": "ls_azure_function",
+          "type": "LinkedServiceReference"
+        }
+      },
+      {
+        "name": "ParseMetadata",
+        "type": "DatabricksNotebook",
+        "dependsOn": [
+          {
+            "activity": "UploadRawBDD100K",
+            "dependencyConditions": ["Succeeded"]
+          }
+        ],
+        "policy": {
+          "timeout": "01:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 30
+        },
+        "typeProperties": {
+          "notebookPath": "/traffic-monitoring/ingestion/metadata_parser",
+          "baseParameters": {
+            "storage_account": {
+              "value": "@pipeline().parameters.storageAccount",
+              "type": "Expression"
+            },
+            "bronze_container": {
+              "value": "raw-bronze",
+              "type": "Expression"
+            },
+            "silver_container": {
+              "value": "processed-silver",
+              "type": "Expression"
+            }
+          }
+        },
+        "linkedServiceName": {
+          "referenceName": "ls_databricks",
+          "type": "LinkedServiceReference"
+        }
+      },
+      {
+        "name": "ValidateIngestion",
+        "type": "DatabricksNotebook",
+        "dependsOn": [
+          {
+            "activity": "ParseMetadata",
+            "dependencyConditions": ["Succeeded"]
+          }
+        ],
+        "policy": {
+          "timeout": "00:30:00",
+          "retry": 0
+        },
+        "typeProperties": {
+          "notebookPath": "/traffic-monitoring/ingestion/validate_ingestion",
+          "baseParameters": {
+            "storage_account": {
+              "value": "@pipeline().parameters.storageAccount",
+              "type": "Expression"
+            }
+          }
+        },
+        "linkedServiceName": {
+          "referenceName": "ls_databricks",
+          "type": "LinkedServiceReference"
+        }
+      }
+    ],
+    "parameters": {
+      "storageAccount": {
+        "type": "string"
+      },
+      "bdd100kSourcePath": {
+        "type": "string",
+        "defaultValue": "/mnt/bdd100k"
+      }
+    },
+    "annotations": ["traffic-monitoring", "ingestion", "bdd100k"]
+  }
+}

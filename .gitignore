@@ -1,0 +1,46 @@
+### Secrets & credentials — NEVER commit these
+infra/.env
+**/*.env
+**/*.pem
+**/*.key
+**/*.pfx
+sp_credentials.json
+
+### Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+### Jupyter
+.ipynb_checkpoints/
+
+### macOS
+.DS_Store
+
+### VS Code
+.vscode/
+
+### Azure ML / MLflow artifacts
+mlruns/
+outputs/
+azureml-logs/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+### Large data (never commit raw video/images)
+data/
+*.mp4
+*.avi
+*.jpg
+*.png
+*.json.gz

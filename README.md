@@ -48,7 +48,7 @@ Azure Kubernetes Service (AKS)         ← Real-Time Inference
 | Step | Name | Status |
 |------|------|--------|
 | 01 | Azure Infrastructure Bootstrap | ✅ |
-| 02 | Data Ingestion (UA-DETRAC) | 🔜 |
+| 02 | Data Ingestion (COCO128) | ✅ |
 | 03 | Databricks Frame Processing | 🔜 |
 | 04 | YOLOv8 Training on Azure ML | 🔜 |
 | 05 | DeepSORT Object Tracking | 🔜 |

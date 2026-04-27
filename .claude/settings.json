@@ -4,7 +4,12 @@
       "Bash(az extension *)",
       "Bash(chmod +x infra/provision.sh)",
       "Bash(bash infra/provision.sh)",
-      "Bash(az vm *)"
+      "Bash(az vm *)",
+      "Bash(python3 -)",
+      "Bash(2>&1)",
+      "Bash(export STORAGE_ACCOUNT_NAME=\"trafficproddlake\")",
+      "Bash(python3 src/ingestion/coco128_upload.py data/coco128)",
+      "Bash(python3 src/ingestion/coco128_metadata_parser.py)"
     ]
   }
 }

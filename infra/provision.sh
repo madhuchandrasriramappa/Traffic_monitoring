@@ -20,7 +20,7 @@ az eventhubs namespace create --name $EVENTHUB_NS --resource-group $RG \
   --location $LOCATION --sku Standard --capacity 4
 az eventhubs eventhub create --name traffic-stream \
   --namespace-name $EVENTHUB_NS --resource-group $RG \
-  --partition-count 16 --message-retention 1
+  --partition-count 16
 
 echo "[4/11] Creating Azure ML Workspace..."
 az ml workspace create --name $AML_WORKSPACE --resource-group $RG \
@@ -44,10 +44,6 @@ az aks create --name $AKS_NAME --resource-group $RG \
   --generate-ssh-keys --attach-acr $ACR_NAME \
   --network-plugin azure --enable-cluster-autoscaler \
   --min-count 2 --max-count 10
-
-az aks nodepool add --cluster-name $AKS_NAME --resource-group $RG \
-  --name gpupool --node-count 1 --node-vm-size Standard_NC6s_v3 \
-  --node-taints sku=gpu:NoSchedule --labels accelerator=nvidia
 
 az aks get-credentials --name $AKS_NAME --resource-group $RG
 

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(az extension *)",
+      "Bash(chmod +x infra/provision.sh)",
+      "Bash(bash infra/provision.sh)",
+      "Bash(az vm *)"
+    ]
+  }
+}

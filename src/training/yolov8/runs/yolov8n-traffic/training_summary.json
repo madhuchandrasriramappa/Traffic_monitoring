@@ -1,0 +1,15 @@
+{
+  "model": "yolov8-traffic",
+  "base_model": "yolov8n",
+  "dataset": "COCO128",
+  "epochs": 10,
+  "image_size": 640,
+  "blob_path": "yolov8-traffic/v1_20260427_234116/best.pt",
+  "trained_at": "2026-04-27T23:41:19.274052",
+  "metrics": {
+    "map50": 0.69837,
+    "map50_95": 0.52448,
+    "precision": 0.69333,
+    "recall": 0.63628
+  }
+}

@@ -1,0 +1,1233 @@
+{
+  "run_timestamp": "2026-04-28T01:17:54.205065",
+  "total_frames": 128,
+  "unique_tracks": 27,
+  "vehicle_classes": [
+    "car",
+    "motorcycle",
+    "bus",
+    "truck"
+  ],
+  "track_summary": {
+    "1": {
+      "class": "car",
+      "first_frame": 8,
+      "last_frame": 8,
+      "frame_count": 1
+    },
+    "2": {
+      "class": "truck",
+      "first_frame": 8,
+      "last_frame": 8,
+      "frame_count": 1
+    },
+    "3": {
+      "class": "car",
+      "first_frame": 9,
+      "last_frame": 9,
+      "frame_count": 1
+    },
+    "4": {
+      "class": "car",
+      "first_frame": 9,
+      "last_frame": 9,
+      "frame_count": 1
+    },
+    "5": {
+      "class": "car",
+      "first_frame": 9,
+      "last_frame": 9,
+      "frame_count": 1
+    },
+    "6": {
+      "class": "motorcycle",
+      "first_frame": 11,
+      "last_frame": 11,
+      "frame_count": 1
+    },
+    "7": {
+      "class": "motorcycle",
+      "first_frame": 16,
+      "last_frame": 16,
+      "frame_count": 1
+    },
+    "8": {
+      "class": "car",
+      "first_frame": 19,
+      "last_frame": 19,
+      "frame_count": 1
+    },
+    "9": {
+      "class": "truck",
+      "first_frame": 19,
+      "last_frame": 19,
+      "frame_count": 1
+    },
+    "10": {
+      "class": "car",
+      "first_frame": 41,
+      "last_frame": 41,
+      "frame_count": 1
+    },
+    "11": {
+      "class": "truck",
+      "first_frame": 43,
+      "last_frame": 43,
+      "frame_count": 1
+    },
+    "12": {
+      "class": "motorcycle",
+      "first_frame": 43,
+      "last_frame": 43,
+      "frame_count": 1
+    },
+    "13": {
+      "class": "truck",
+      "first_frame": 43,
+      "last_frame": 43,
+      "frame_count": 1
+    },
+    "14": {
+      "class": "truck",
+      "first_frame": 43,
+      "last_frame": 43,
+      "frame_count": 1
+    },
+    "15": {
+      "class": "car",
+      "first_frame": 44,
+      "last_frame": 44,
+      "frame_count": 1
+    },
+    "16": {
+      "class": "bus",
+      "first_frame": 44,
+      "last_frame": 44,
+      "frame_count": 1
+    },
+    "17": {
+      "class": "car",
+      "first_frame": 48,
+      "last_frame": 48,
+      "frame_count": 1
+    },
+    "18": {
+      "class": "car",
+      "first_frame": 61,
+      "last_frame": 61,
+      "frame_count": 1
+    },
+    "19": {
+      "class": "car",
+      "first_frame": 75,
+      "last_frame": 75,
+      "frame_count": 1
+    },
+    "20": {
+      "class": "bus",
+      "first_frame": 84,
+      "last_frame": 84,
+      "frame_count": 1
+    },
+    "21": {
+      "class": "motorcycle",
+      "first_frame": 96,
+      "last_frame": 96,
+      "frame_count": 1
+    },
+    "22": {
+      "class": "bus",
+      "first_frame": 98,
+      "last_frame": 98,
+      "frame_count": 1
+    },
+    "23": {
+      "class": "bus",
+      "first_frame": 98,
+      "last_frame": 98,
+      "frame_count": 1
+    },
+    "24": {
+      "class": "car",
+      "first_frame": 100,
+      "last_frame": 100,
+      "frame_count": 1
+    },
+    "25": {
+      "class": "motorcycle",
+      "first_frame": 122,
+      "last_frame": 122,
+      "frame_count": 1
+    },
+    "26": {
+      "class": "bus",
+      "first_frame": 125,
+      "last_frame": 125,
+      "frame_count": 1
+    },
+    "27": {
+      "class": "car",
+      "first_frame": 127,
+      "last_frame": 127,
+      "frame_count": 1
+    }
+  },
+  "per_frame_tracks": [
+    {
+      "frame": 0,
+      "image": "000000000009.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 1,
+      "image": "000000000025.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 2,
+      "image": "000000000030.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 3,
+      "image": "000000000034.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 4,
+      "image": "000000000036.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 5,
+      "image": "000000000042.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 6,
+      "image": "000000000049.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 7,
+      "image": "000000000061.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 8,
+      "image": "000000000064.jpg",
+      "detections": 2,
+      "tracks": [
+        {
+          "track_id": 1,
+          "class": "car",
+          "bbox": [
+            52.0,
+            393.4,
+            228.3,
+            526.6
+          ]
+        },
+        {
+          "track_id": 2,
+          "class": "truck",
+          "bbox": [
+            52.3,
+            353.4,
+            178.9,
+            414.0
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 9,
+      "image": "000000000071.jpg",
+      "detections": 3,
+      "tracks": [
+        {
+          "track_id": 3,
+          "class": "car",
+          "bbox": [
+            520.1,
+            221.8,
+            544.2,
+            234.2
+          ]
+        },
+        {
+          "track_id": 4,
+          "class": "car",
+          "bbox": [
+            587.5,
+            230.9,
+            613.2,
+            245.1
+          ]
+        },
+        {
+          "track_id": 5,
+          "class": "car",
+          "bbox": [
+            617.3,
+            236.7,
+            640.0,
+            249.7
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 10,
+      "image": "000000000072.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 11,
+      "image": "000000000073.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 6,
+          "class": "motorcycle",
+          "bbox": [
+            2.9,
+            24.0,
+            537.2,
+            637.9
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 12,
+      "image": "000000000074.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 13,
+      "image": "000000000077.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 14,
+      "image": "000000000078.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 15,
+      "image": "000000000081.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 16,
+      "image": "000000000086.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 7,
+          "class": "motorcycle",
+          "bbox": [
+            132.3,
+            312.7,
+            413.8,
+            628.9
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 17,
+      "image": "000000000089.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 18,
+      "image": "000000000092.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 19,
+      "image": "000000000094.jpg",
+      "detections": 2,
+      "tracks": [
+        {
+          "track_id": 8,
+          "class": "car",
+          "bbox": [
+            355.9,
+            275.9,
+            397.5,
+            310.5
+          ]
+        },
+        {
+          "track_id": 9,
+          "class": "truck",
+          "bbox": [
+            539.6,
+            263.8,
+            627.5,
+            352.0
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 20,
+      "image": "000000000109.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 21,
+      "image": "000000000110.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 22,
+      "image": "000000000113.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 23,
+      "image": "000000000127.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 24,
+      "image": "000000000133.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 25,
+      "image": "000000000136.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 26,
+      "image": "000000000138.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 27,
+      "image": "000000000142.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 28,
+      "image": "000000000143.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 29,
+      "image": "000000000144.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 30,
+      "image": "000000000149.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 31,
+      "image": "000000000151.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 32,
+      "image": "000000000154.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 33,
+      "image": "000000000164.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 34,
+      "image": "000000000165.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 35,
+      "image": "000000000192.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 36,
+      "image": "000000000194.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 37,
+      "image": "000000000196.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 38,
+      "image": "000000000201.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 39,
+      "image": "000000000208.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 40,
+      "image": "000000000241.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 41,
+      "image": "000000000247.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 10,
+          "class": "car",
+          "bbox": [
+            56.7,
+            188.2,
+            140.2,
+            221.3
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 42,
+      "image": "000000000250.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 43,
+      "image": "000000000257.jpg",
+      "detections": 4,
+      "tracks": [
+        {
+          "track_id": 11,
+          "class": "truck",
+          "bbox": [
+            249.2,
+            278.1,
+            453.9,
+            401.9
+          ]
+        },
+        {
+          "track_id": 12,
+          "class": "motorcycle",
+          "bbox": [
+            98.5,
+            415.7,
+            170.5,
+            479.8
+          ]
+        },
+        {
+          "track_id": 13,
+          "class": "truck",
+          "bbox": [
+            55.1,
+            301.2,
+            187.1,
+            360.2
+          ]
+        },
+        {
+          "track_id": 14,
+          "class": "truck",
+          "bbox": [
+            519.1,
+            239.9,
+            639.4,
+            479.8
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 44,
+      "image": "000000000260.jpg",
+      "detections": 2,
+      "tracks": [
+        {
+          "track_id": 15,
+          "class": "car",
+          "bbox": [
+            238.9,
+            174.7,
+            271.9,
+            194.8
+          ]
+        },
+        {
+          "track_id": 16,
+          "class": "bus",
+          "bbox": [
+            0.0,
+            88.1,
+            62.8,
+            257.9
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 45,
+      "image": "000000000263.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 46,
+      "image": "000000000283.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 47,
+      "image": "000000000294.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 48,
+      "image": "000000000307.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 17,
+          "class": "car",
+          "bbox": [
+            386.1,
+            49.1,
+            431.8,
+            65.2
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 49,
+      "image": "000000000308.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 50,
+      "image": "000000000309.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 51,
+      "image": "000000000312.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 52,
+      "image": "000000000315.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 53,
+      "image": "000000000321.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 54,
+      "image": "000000000322.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 55,
+      "image": "000000000326.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 56,
+      "image": "000000000328.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 57,
+      "image": "000000000332.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 58,
+      "image": "000000000338.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 59,
+      "image": "000000000349.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 60,
+      "image": "000000000357.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 61,
+      "image": "000000000359.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 18,
+          "class": "car",
+          "bbox": [
+            0.0,
+            292.2,
+            128.6,
+            329.4
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 62,
+      "image": "000000000360.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 63,
+      "image": "000000000368.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 64,
+      "image": "000000000370.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 65,
+      "image": "000000000382.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 66,
+      "image": "000000000384.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 67,
+      "image": "000000000387.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 68,
+      "image": "000000000389.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 69,
+      "image": "000000000394.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 70,
+      "image": "000000000395.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 71,
+      "image": "000000000397.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 72,
+      "image": "000000000400.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 73,
+      "image": "000000000404.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 74,
+      "image": "000000000415.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 75,
+      "image": "000000000419.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 19,
+          "class": "car",
+          "bbox": [
+            432.3,
+            203.8,
+            450.2,
+            217.1
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 76,
+      "image": "000000000428.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 77,
+      "image": "000000000431.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 78,
+      "image": "000000000436.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 79,
+      "image": "000000000438.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 80,
+      "image": "000000000443.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 81,
+      "image": "000000000446.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 82,
+      "image": "000000000450.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 83,
+      "image": "000000000459.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 84,
+      "image": "000000000471.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 20,
+          "class": "bus",
+          "bbox": [
+            115.3,
+            106.6,
+            579.0,
+            322.8
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 85,
+      "image": "000000000472.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 86,
+      "image": "000000000474.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 87,
+      "image": "000000000486.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 88,
+      "image": "000000000488.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 89,
+      "image": "000000000490.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 90,
+      "image": "000000000491.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 91,
+      "image": "000000000502.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 92,
+      "image": "000000000508.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 93,
+      "image": "000000000510.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 94,
+      "image": "000000000514.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 95,
+      "image": "000000000520.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 96,
+      "image": "000000000529.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 21,
+          "class": "motorcycle",
+          "bbox": [
+            14.4,
+            237.7,
+            381.6,
+            591.5
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 97,
+      "image": "000000000531.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 98,
+      "image": "000000000532.jpg",
+      "detections": 2,
+      "tracks": [
+        {
+          "track_id": 22,
+          "class": "bus",
+          "bbox": [
+            95.3,
+            133.4,
+            555.0,
+            390.5
+          ]
+        },
+        {
+          "track_id": 23,
+          "class": "bus",
+          "bbox": [
+            0.1,
+            172.0,
+            94.9,
+            357.3
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 99,
+      "image": "000000000536.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 100,
+      "image": "000000000540.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 24,
+          "class": "car",
+          "bbox": [
+            121.5,
+            369.6,
+            141.7,
+            381.6
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 101,
+      "image": "000000000542.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 102,
+      "image": "000000000544.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 103,
+      "image": "000000000560.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 104,
+      "image": "000000000562.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 105,
+      "image": "000000000564.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 106,
+      "image": "000000000569.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 107,
+      "image": "000000000572.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 108,
+      "image": "000000000575.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 109,
+      "image": "000000000581.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 110,
+      "image": "000000000584.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 111,
+      "image": "000000000589.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 112,
+      "image": "000000000590.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 113,
+      "image": "000000000595.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 114,
+      "image": "000000000597.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 115,
+      "image": "000000000599.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 116,
+      "image": "000000000605.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 117,
+      "image": "000000000612.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 118,
+      "image": "000000000620.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 119,
+      "image": "000000000623.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 120,
+      "image": "000000000625.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 121,
+      "image": "000000000626.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 122,
+      "image": "000000000629.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 25,
+          "class": "motorcycle",
+          "bbox": [
+            322.5,
+            249.1,
+            563.9,
+            410.4
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 123,
+      "image": "000000000634.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 124,
+      "image": "000000000636.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 125,
+      "image": "000000000641.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 26,
+          "class": "bus",
+          "bbox": [
+            137.4,
+            100.8,
+            552.1,
+            335.6
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 126,
+      "image": "000000000643.jpg",
+      "detections": 0,
+      "tracks": []
+    },
+    {
+      "frame": 127,
+      "image": "000000000650.jpg",
+      "detections": 1,
+      "tracks": [
+        {
+          "track_id": 27,
+          "class": "car",
+          "bbox": [
+            7.1,
+            266.0,
+            637.2,
+            423.1
+          ]
+        }
+      ]
+    }
+  ]
+}

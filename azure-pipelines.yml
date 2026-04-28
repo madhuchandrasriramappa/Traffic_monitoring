@@ -1,0 +1,113 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - README.md
+      - "*.md"
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  ACR_NAME:       trafficprodacr
+  IMAGE_NAME:     traffic-inference
+  AKS_NAME:       trafficprodaks
+  AKS_RG:         rg-traffic-prod
+  PYTHON_VERSION: "3.11"
+
+stages:
+# ── Stage 1: Test ─────────────────────────────────────────────────────────────
+- stage: Test
+  displayName: "Run unit tests"
+  jobs:
+  - job: UnitTests
+    displayName: "pytest"
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: $(PYTHON_VERSION)
+
+    - script: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu --quiet
+      displayName: "Install PyTorch (CPU)"
+
+    - script: pip install ultralytics opencv-python-headless pytest --quiet
+      displayName: "Install dependencies"
+
+    - script: pytest tests/ -v --tb=short --junitxml=test-results.xml
+      displayName: "Run pytest"
+
+    - task: PublishTestResults@2
+      condition: always()
+      inputs:
+        testResultsFormat: JUnit
+        testResultsFiles: test-results.xml
+        failTaskOnFailedTests: true
+
+# ── Stage 2: Build & Push ─────────────────────────────────────────────────────
+- stage: Build
+  displayName: "Build & push Docker image"
+  dependsOn: Test
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - job: DockerBuild
+    displayName: "Build linux/amd64 image"
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: AzureCLI@2
+      displayName: "ACR login"
+      inputs:
+        azureSubscription: "traffic-prod-service-connection"
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: az acr login --name $(ACR_NAME)
+
+    - script: |
+        docker buildx build \
+          --platform linux/amd64 \
+          -t $(ACR_NAME).azurecr.io/$(IMAGE_NAME):$(Build.BuildId) \
+          -t $(ACR_NAME).azurecr.io/$(IMAGE_NAME):latest \
+          --push \
+          -f src/inference/Dockerfile \
+          src/inference/
+      displayName: "Build & push (amd64)"
+
+# ── Stage 3: Deploy to AKS ────────────────────────────────────────────────────
+- stage: Deploy
+  displayName: "Deploy to AKS"
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - deployment: DeployAKS
+    displayName: "kubectl apply"
+    pool:
+      vmImage: ubuntu-latest
+    environment: production
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureCLI@2
+            displayName: "Get AKS credentials"
+            inputs:
+              azureSubscription: "traffic-prod-service-connection"
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                az aks get-credentials \
+                  --name $(AKS_NAME) \
+                  --resource-group $(AKS_RG) \
+                  --overwrite-existing
+
+          - script: |
+              # Pin image to this build
+              sed -i "s|:latest|:$(Build.BuildId)|g" k8s/deployment.yaml
+              kubectl apply -f k8s/deployment.yaml
+              kubectl rollout status deployment/traffic-inference --timeout=120s
+            displayName: "Deploy & verify rollout"

@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-inference
+  labels:
+    app: traffic-inference
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traffic-inference
+  template:
+    metadata:
+      labels:
+        app: traffic-inference
+    spec:
+      containers:
+        - name: inference
+          image: trafficprodacr.azurecr.io/traffic-inference:latest
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "1500m"
+              memory: "3Gi"
+          env:
+            - name: STORAGE_ACCOUNT
+              value: "trafficproddlake"
+            - name: MODELS_CONTAINER
+              value: "models"
+            - name: EVENTHUB_NAME
+              value: "traffic-stream"
+            - name: CONSUMER_GROUP
+              value: "$Default"
+            - name: EVENTHUB_CONN_STR
+              valueFrom:
+                secretKeyRef:
+                  name: traffic-secrets
+                  key: eventhub-conn-str
+          livenessProbe:
+            exec:
+              command: ["python", "-c", "import app"]
+            initialDelaySeconds: 60
+            periodSeconds: 30
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traffic-inference-svc
+spec:
+  selector:
+    app: traffic-inference
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: ClusterIP

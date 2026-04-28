@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  log-data-collection-settings: '{"log": {"include_system_unit": true, "stdout": {"enabled":
+    true, "containers": ["traffic-inference"]}, "stderr": {"enabled": true, "containers":
+    ["traffic-inference"]}}}'
+  schema-version: v1
+kind: ConfigMap
+metadata:
+  name: container-azm-ms-agentconfig
+  namespace: kube-system

@@ -1,0 +1,8 @@
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+          value: InstrumentationKey=78312f03-d9b4-4533-a53b-5ed6b4549d81;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/;ApplicationId=dcee4025-c26f-429c-8bc3-1f965b096bce
+        name: inference

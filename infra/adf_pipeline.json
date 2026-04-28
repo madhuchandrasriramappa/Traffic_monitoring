@@ -1,0 +1,42 @@
+{
+  "name": "BatchInferencePipeline",
+  "properties": {
+    "description": "Batch inference pipeline: reads processed frames from Silver, runs YOLOv8 + ConvLSTM, writes results to Gold layer.",
+    "activities": [
+      {
+        "name": "RunBatchInference",
+        "type": "AzureMLExecutePipeline",
+        "dependsOn": [],
+        "typeProperties": {
+          "mlPipelineId": "batch-inference-v1",
+          "experimentName": "batch-inference",
+          "mlPipelineParameters": {
+            "storage_account":  "trafficproddlake",
+            "silver_container": "processed-silver",
+            "gold_container":   "gold-serving",
+            "yolo_blob":        "yolov8-traffic/v1_20260427_234116/best.pt",
+            "convlstm_blob":    "convlstm-accident-detector/v1_20260428_012834/convlstm_best.pt"
+          }
+        },
+        "linkedServiceName": {
+          "referenceName": "AzureMLLinkedService",
+          "type": "LinkedServiceReference"
+        }
+      }
+    ],
+    "triggers": [
+      {
+        "name": "NightlyBatchTrigger",
+        "type": "ScheduleTrigger",
+        "properties": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2026-04-28T02:00:00Z",
+            "timeZone":  "UTC"
+          }
+        }
+      }
+    ]
+  }
+}

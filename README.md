@@ -53,12 +53,12 @@ Azure Kubernetes Service (AKS)         ← Real-Time Inference
 | 04 | YOLOv8 Training on Azure ML | ✅ |
 | 05 | DeepSORT Object Tracking | ✅ |
 | 06 | ConvLSTM Accident Detection | ✅ |
-| 07 | MLOps Model Registry | 🔜 |
-| 08 | AKS Real-Time Inference | 🔜 |
-| 09 | Batch Processing Pipeline | 🔜 |
+| 07 | MLOps Model Registry | ✅ |
+| 08 | AKS Real-Time Inference | ✅ |
+| 09 | Batch Processing Pipeline | ✅ |
 | 10 | Power BI Dashboard | 🔜 |
-| 11 | CI/CD with Azure DevOps | 🔜 |
-| 12 | Monitoring & Logging | 🔜 |
+| 11 | CI/CD with Azure DevOps | ✅ |
+| 12 | Monitoring & Logging | ✅ |
 
 ## Quickstart
 

@@ -60,11 +60,3 @@ Azure Kubernetes Service (AKS)         ← Real-Time Inference
 | 11 | CI/CD with Azure DevOps | ✅ |
 | 12 | Monitoring & Logging | ✅ |
 
-## Quickstart
-
-```bash
-cp infra/.env.example infra/.env
-# Edit infra/.env with your subscription details
-chmod +x infra/provision.sh
-./infra/provision.sh
-```

@@ -1,0 +1,205 @@
+{
+  "dashboard": {
+    "title": "Smart Traffic Monitoring",
+    "tags": ["traffic", "azure", "ml"],
+    "timezone": "browser",
+    "refresh": "30s",
+    "schemaVersion": 36,
+    "panels": [
+      {
+        "id": 1,
+        "title": "Vehicles Detected (Last Hour)",
+        "type": "timeseries",
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where LogEntry contains '\"vehicles\"' | extend vehicles = toint(extract('\"vehicles\": ([0-9]+)', 1, LogEntry)) | where isnotnull(vehicles) | summarize total_vehicles=sum(vehicles) by bin(TimeGenerated, 1m) | order by TimeGenerated asc",
+              "resultFormat": "time_series"
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "mode": "palette-classic" },
+            "custom": { "lineWidth": 2, "fillOpacity": 10 }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Accident Alerts (Last Hour)",
+        "type": "timeseries",
+        "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where LogEntry contains 'ACCIDENT DETECTED' | summarize accidents=count() by bin(TimeGenerated, 1m) | order by TimeGenerated asc",
+              "resultFormat": "time_series"
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "fixedColor": "red", "mode": "fixed" },
+            "custom": { "lineWidth": 2, "fillOpacity": 20 }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Total Vehicles Detected Today",
+        "type": "stat",
+        "gridPos": { "x": 0, "y": 8, "w": 6, "h": 4 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where TimeGenerated > startofday(now()) | where LogEntry contains '\"vehicles\"' | extend v = toint(extract('\"vehicles\": ([0-9]+)', 1, LogEntry)) | summarize total=sum(v)",
+              "resultFormat": "table"
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": { "color": { "mode": "thresholds" }, "unit": "short",
+            "thresholds": { "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "yellow", "value": 50 },
+              { "color": "red",    "value": 100 }
+            ]}
+          }
+        },
+        "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "graphMode": "none", "textMode": "value" }
+      },
+      {
+        "id": 4,
+        "title": "Total Accidents Today",
+        "type": "stat",
+        "gridPos": { "x": 6, "y": 8, "w": 6, "h": 4 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where TimeGenerated > startofday(now()) | where LogEntry contains 'ACCIDENT DETECTED' | count",
+              "resultFormat": "table"
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": { "color": { "mode": "thresholds" }, "unit": "short",
+            "thresholds": { "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "red",   "value": 1 }
+            ]}
+          }
+        },
+        "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "graphMode": "none", "textMode": "value", "colorMode": "background" }
+      },
+      {
+        "id": 5,
+        "title": "Avg Anomaly Score (Last Hour)",
+        "type": "gauge",
+        "gridPos": { "x": 12, "y": 8, "w": 6, "h": 4 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where TimeGenerated > ago(1h) | where LogEntry contains '\"anomaly_score\"' | extend score = todouble(extract('\"anomaly_score\": ([0-9.]+)', 1, LogEntry)) | where isnotnull(score) | summarize avg_score=avg(score)",
+              "resultFormat": "table"
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": { "min": 0, "max": 1, "unit": "percentunit",
+            "thresholds": { "steps": [
+              { "color": "green",  "value": 0 },
+              { "color": "yellow", "value": 0.4 },
+              { "color": "red",    "value": 0.7 }
+            ]}
+          }
+        }
+      },
+      {
+        "id": 6,
+        "title": "Frames Processed (Last Hour)",
+        "type": "stat",
+        "gridPos": { "x": 18, "y": 8, "w": 6, "h": 4 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where TimeGenerated > ago(1h) | where LogEntry contains '\"frame\"' | count",
+              "resultFormat": "table"
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": { "color": { "fixedColor": "blue", "mode": "fixed" }, "unit": "short" }
+        },
+        "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "graphMode": "area", "textMode": "value" }
+      },
+      {
+        "id": 7,
+        "title": "Vehicle Type Breakdown",
+        "type": "piechart",
+        "gridPos": { "x": 0, "y": 12, "w": 12, "h": 8 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where LogEntry contains '\"class\"' | extend vclass = extract('\"class\": \"([a-z]+)\"', 1, LogEntry) | where vclass in ('car','truck','motorcycle','bus') | summarize count() by vclass",
+              "resultFormat": "table"
+            }
+          }
+        ],
+        "options": { "pieType": "pie", "displayLabels": ["name", "percent"] }
+      },
+      {
+        "id": 8,
+        "title": "Inference Pod Logs (Live)",
+        "type": "logs",
+        "gridPos": { "x": 12, "y": 12, "w": 12, "h": 8 },
+        "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "${DS_TRAFFICLOGS}" },
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "Azure Log Analytics",
+            "azureLogAnalytics": {
+              "query": "ContainerLog | where ContainerName contains 'inference' | order by TimeGenerated desc | take 50",
+              "resultFormat": "logs"
+            }
+          }
+        ],
+        "options": { "showTime": true, "wrapLogMessage": true, "sortOrder": "Descending" }
+      }
+    ],
+    "templating": {
+      "list": [
+        {
+          "name": "DS_TRAFFICLOGS",
+          "type": "datasource",
+          "pluginId": "grafana-azure-monitor-datasource",
+          "hide": 2
+        }
+      ]
+    }
+  },
+  "overwrite": true,
+  "folderId": 0
+}

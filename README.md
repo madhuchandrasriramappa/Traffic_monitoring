@@ -56,7 +56,7 @@ Azure Kubernetes Service (AKS)         ← Real-Time Inference
 | 07 | MLOps Model Registry | ✅ |
 | 08 | AKS Real-Time Inference | ✅ |
 | 09 | Batch Processing Pipeline | ✅ |
-| 10 | Power BI Dashboard | 🔜 |
+| 10 | Grafana Dashboard | ✅ |
 | 11 | CI/CD with Azure DevOps | ✅ |
 | 12 | Monitoring & Logging | ✅ |
 
